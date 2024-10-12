@@ -1,11 +1,5 @@
 version: "3"
 tasks:
-  init:
-    desc: init buf
-    cmds:
-      - brew install buf
-      - go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.34.1
-      - go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.4.0
   lint:
     desc: lint and format proto
     dir: "{{.ROOT_DIR}}/proto"
@@ -13,9 +7,14 @@ tasks:
       - buf format -w
       - buf lint
     silent: true
-  gen:
+  gogen:
     desc: generate interface
     dir: "{{.ROOT_DIR}}/proto"
     cmds:
-      - buf generate
+      - buf generate --template buf.gen.go.yaml
     silent: true
+  tsgen:
+    desc: generate ts interface
+    dir: "{{.ROOT_DIR}}/proto"
+    cmds:
+      - buf generate --template buf.gen.ts.yaml
