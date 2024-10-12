@@ -1,0 +1,8 @@
+version: v2
+plugins:
+  - remote: buf.build/bufbuild/es
+    out: ../ts/app/services
+    opt: target=ts
+  - remote: buf.build/connectrpc/es
+    out: ../ts/app/services
+    opt: target=ts
