@@ -4,9 +4,7 @@ export async function fetchData<T>(path: string): Promise<T> {
     throw new Error("Host is not found");
   }
 
-  const apiBase = `${host}`;
-
-  const res = await fetch(new URL(`${apiBase}/api/${path}`));
+  const res = await fetch(new URL(`${host}/api/${path}`));
 
   const json = await res.json();
   return json;
