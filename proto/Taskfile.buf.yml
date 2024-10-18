@@ -18,3 +18,4 @@ tasks:
     dir: "{{.ROOT_DIR}}/proto"
     cmds:
       - buf generate --template buf.gen.ts.yaml
+    silent: true
